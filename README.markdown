@@ -1,5 +1,7 @@
 # Stock Market Predictor
 
+[Click for a try!](stock-prediction-by-lstm-ntqvmpntpsyeqvtoqy6uud.streamlit.app)
+
 ## Overview
 The Stock Market Predictor is a Python application that uses Long Short-Term Memory (LSTM) neural networks to forecast stock prices. It retrieves historical stock data from Yahoo Finance, preprocesses it using StandardScaler and MinMaxScaler, trains two LSTM models, and visualizes predictions through an interactive Streamlit web interface. Users can input a stock symbol (e.g., TSLA) and select data intervals to view historical trends, moving averages, and future price forecasts.
 
@@ -48,7 +50,7 @@ pip install -r requirements.txt
 ## Setup and Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/<your-username>/stock-prediction-by-lstm.git
+   git clone https://github.com/<6309-lcy>/stock-prediction-by-lstm.git
    cd stock-prediction-by-lstm
    ```
 
@@ -59,17 +61,14 @@ pip install -r requirements.txt
      ```
    - For Anaconda, follow the commands above to install core packages and use `pip` for additional dependencies.
 
-3. **Verify Model Files**:
-   - Ensure the pre-trained model files (`LSTM_3_Layers.keras` and `LSTM_3_Layers_MINMAX.keras`) are in the `models` directory.
-   - If training models, run `LSTM_Stock_Prediction.ipynb` to generate these files (update paths in `App.py` if necessary).
 
-4. **Run the Application Locally**:
+3. **Run the Application Locally**:
    ```bash
    streamlit run App.py
    ```
    This launches the Streamlit app in your default browser.
 
-5. **Deploy to Streamlit Cloud**:
+4. **Deploy to Streamlit Cloud**:
    - Push the repository to GitHub, ensuring `requirements.txt` and the `models` directory are included.
    - In Streamlit Cloud, create a new app, select your repository, and specify `App.py` as the main file.
    - Reboot the app to deploy.
@@ -101,28 +100,13 @@ pip install -r requirements.txt
   - Early stopping with 20-epoch patience.
 - **Future Predictions**: 7-day forecast using the last 60 days of data.
 
-## Deployment Notes
-- **Streamlit Cloud**:
-  - Ensure `requirements.txt` includes only PyPI packages (no local paths).
-  - Model files must be in the `models` directory and referenced with relative paths in `App.py` (e.g., `models/LSTM_3_Layers.keras`).
-  - Model files must be under 100MB or use Git LFS for larger files.
-- **Common Issues**:
-  - Missing dependencies (e.g., `yfinance`) cause `ModuleNotFoundError`. Verify `requirements.txt`.
-  - Check deployment logs in Streamlit Cloud for errors.
 
 ## Limitations
 - **Data Dependency**: Relies on Yahoo Finance, which may have access restrictions.
 - **Prediction Accuracy**: Stock predictions are uncertain and not suitable for sole investment decisions.
-- **Model File Size**: Large model files may require Git LFS or cloud storage for deployment.
 
 ## Future Improvements
-- **Dynamic Model Loading**: Allow users to upload models via the Streamlit interface.
-- **Additional Indicators**: Incorporate technical indicators (e.g., RSI, MACD).
-- **Cloud Storage**: Host large model files on cloud storage for deployment.
-- **Model Retraining**: Add functionality to retrain models within the app.
-
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+- Training the model with more features like RSI, MA, High and Low
 
 ## Contact
 For questions or contributions, open an issue on GitHub or contact the repository maintainer.

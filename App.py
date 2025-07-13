@@ -186,7 +186,7 @@ with col4:
 
 col5, col6 = st.columns([1, 1])
 with col5:
-    st.subheader("Future Prediction using StandardScaler")
+    st.subheader("Future Prediction using StandardScaler (7 Days")
     fig5 = plt.figure(figsize=(15, 7), dpi=100)
     
     plt.plot(test_date, y_predict, 'r', label="Predicted (Historical)")
@@ -210,7 +210,7 @@ with col5:
     plt.close(fig5)
 
 with col6:
-    st.subheader("Future Prediction using MinMaxScaler")
+    st.subheader("Future Prediction using MinMaxScaler (7 Days")
     fig6 = plt.figure(figsize=(15, 7), dpi=100)
     
     plt.plot(test_date, y2_predict, 'b', label="Predicted (Historical)")

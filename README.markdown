@@ -1,6 +1,6 @@
 # Stock Market Predictor
 
-[Click for a try!](ntqvmpntpsyeqvtoqy6uud.streamlit.app)
+[Click for a try!](https://stock-prediction-by-lstm-ntqvmpntpsyeqvtoqy6uud.streamlit.app)
 
 ## Overview
 The Stock Market Predictor is a Python application that uses Long Short-Term Memory (LSTM) neural networks to forecast stock prices. It retrieves historical stock data from Yahoo Finance, preprocesses it using StandardScaler and MinMaxScaler, trains two LSTM models, and visualizes predictions through an interactive Streamlit web interface. Users can input a stock symbol (e.g., TSLA) and select data intervals to view historical trends, moving averages, and future price forecasts.

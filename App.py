@@ -71,7 +71,7 @@ y2_predict = model2.predict(X2)
 y2_predict = scalar2.inverse_transform(y2_predict)
 y2 = scalar2.inverse_transform(y2.reshape(-1, 1))
 
-test_date = data.index[int(len(data)*0.85):]
+test_date = data.index[int(len(data)*0.85)-60:]
 
 
 future_input = scalar_value_test[-60:].reshape(1, 60, 1)

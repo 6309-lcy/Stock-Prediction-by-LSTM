@@ -13,8 +13,8 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 st.set_page_config(layout="wide")
 
 
-model1 = keras.models.load_model("D:\GITHUBLSTM\LSTM_3_Layers.keras")
-model2 = keras.models.load_model("D:\GITHUBLSTM\LSTM_3_Layers_MINMAX.keras")
+model1 = keras.models.load_model("LSTM_3_Layers.keras")
+model2 = keras.models.load_model("LSTM_3_Layers_MINMAX.keras")
 
 word = r'''
 $\textsf{\Huge Stock Market Predictor}$

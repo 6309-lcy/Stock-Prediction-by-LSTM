@@ -6,8 +6,9 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import keras
+
 from datetime import datetime, timedelta
-from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 
 st.set_page_config(layout="wide")
@@ -17,7 +18,7 @@ model1 = keras.models.load_model("LSTM_3_Layers.keras")
 model2 = keras.models.load_model("LSTM_3_Layers_MINMAX.keras")
 
 word = r'''
-$\textsf{\Huge Stock Market Predictor}$
+$\textsf{\Huge Stock Predictor}$
 '''
 st.header(word)
 interval_option = ['1d', '5d', '1wk', '1mo', '3mo']
@@ -33,7 +34,7 @@ $\textsf{\Huge Choose the interval of the data}$
 intervals = st.selectbox(word, options=interval_option)
 data = yf.download(stock, start=starts, end=ends, interval=intervals, multi_level_index=False)
 
-st.markdown("# Stock Data, starting from 2015-01-01")
+st.markdown(f"# Stock Data, starting from 2015-01-01 ,today is {datetime.today()}")
 st.write(data)
 
 
@@ -116,9 +117,11 @@ rmse1 = np.sqrt(mean_squared_error(y, y_predict))
 mae1 = mean_absolute_error(y, y_predict)
 rmse2 = np.sqrt(mean_squared_error(y2, y2_predict))
 mae2 = mean_absolute_error(y2, y2_predict)
+R_2_1 = r2_score(y,y_predict)
+R_2_2 = r2_score(y2, y2_predict)
 
-st.markdown(f"**StandardScaler** - RMSE: {rmse1:.2f}, MAE: {mae1:.2f}")
-st.markdown(f"**MinMaxScaler** - RMSE: {rmse2:.2f}, MAE: {mae2:.2f}")
+st.markdown(f"**StandardScaler** - RMSE: {rmse1:.2f}, MAE: {mae1:.2f}, R^2: {R_2_1:.2f}")
+st.markdown(f"**MinMaxScaler** - RMSE: {rmse2:.2f}, MAE: {mae2:.2f}, R^2: {R_2_2:.2f}")
 
 
 col1, col2 = st.columns([1, 1])

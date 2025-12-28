@@ -21,7 +21,7 @@ word = r'''
 $\textsf{\Huge Stock Predictor}$
 '''
 st.header(word)
-interval_option = ['1d', '5d', '1wk', '1mo', '3mo']
+interval_option = ['1d', '5d']
 word = r'''
 $\textsf{\Huge Enter a Stock Symbol}$
 '''
@@ -74,7 +74,7 @@ y2_predict = model2.predict(X2)
 y2_predict = scalar2.inverse_transform(y2_predict)
 y2 = scalar2.inverse_transform(y2.reshape(-1, 1))
 
-test_date = data.index[int(len(data)*0.85)-60:]
+test_date = data.index[int(len(data)*0.85):]
 
 
 future_input = scalar_value_test[-60:].reshape(1, 60, 1)
@@ -213,6 +213,8 @@ with col5:
     plt.tight_layout(pad=2.0)
     st.pyplot(fig5)
     plt.close(fig5)
+    for i in range(7):
+        st.markdown(f"Day{i+1}: Predicted Price:{future_preds[i]}\n")
 
 with col6:
     st.subheader("Future Prediction using MinMaxScaler (7 Days")
@@ -237,3 +239,5 @@ with col6:
     plt.tight_layout(pad=2.0)
     st.pyplot(fig6)
     plt.close(fig6)
+    for i in range(7):
+        st.markdown(f"Day{i+1}: Predicted Price:{future_preds2[i]}\n")
